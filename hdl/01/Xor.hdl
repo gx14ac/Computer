@@ -1,0 +1,17 @@
+/* 
+    Xor !(a == b)
+    2つの入力のどちらか片方が真でもう片方が偽の時には結果が真となり、両方とも真あるいは両方とも偽の時は偽となる演算
+
+    NAND 2つの入力が真の時のみ偽を返す
+    Or 片方、もしくはどちらとも真の時に真を返す。
+    And ２つの入力が真の時のみ真を返す
+ */
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Nand (a=a, b=b, out=AnandB); //0
+    Or(a=a, b=b, out=AorB); // 1
+    And(a=AnandB, b=AorB, out=out); //0
+}

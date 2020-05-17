@@ -1,0 +1,17 @@
+/* 
+    * Not gate;
+    * out = not in
+    *
+ */
+
+ CHIP Not {
+     IN in;
+     OUT out;
+
+    /* 
+        1 1 = 0
+        0 0 = 1
+     */
+     PARTS:
+        Nand(a=in, b=in, out=out);
+ }
